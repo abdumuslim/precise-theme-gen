@@ -52,16 +52,27 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				dashboard: {
+					navy: 'hsl(var(--dashboard-navy))',
+					panel: 'hsl(var(--dashboard-dark-panel))',
+					green: 'hsl(var(--dashboard-green))',
+					'green-bright': 'hsl(var(--dashboard-green-bright))',
+					'text-light': 'hsl(var(--dashboard-text-light))',
+					'text-muted': 'hsl(var(--dashboard-text-muted))',
+					red: 'hsl(var(--dashboard-red))',
+					border: 'hsl(var(--dashboard-border))'
 				}
+			},
+			backgroundImage: {
+				'gradient-green': 'var(--gradient-green)',
+				'gradient-panel': 'var(--gradient-panel)',
+			},
+			boxShadow: {
+				'panel': 'var(--shadow-panel)',
+				'hover': 'var(--shadow-hover)',
+			},
+			transitionTimingFunction: {
+				'smooth': 'var(--transition-smooth)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
