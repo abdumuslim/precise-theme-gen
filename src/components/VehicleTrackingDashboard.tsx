@@ -22,7 +22,7 @@ const VehicleTrackingDashboard = () => {
       </header>
 
       {/* Main Dashboard Grid */}
-      <div className="flex-1 p-4 grid gap-4 min-h-0" style={{ gridTemplateRows: '1fr 1fr 1.5fr' }}>
+      <div className="flex-1 p-4 grid gap-4 min-h-0" style={{ gridTemplateRows: '0.6fr 0.8fr 1.8fr' }}>
         {/* Top Row - Vehicle Info Cards */}
         <div className="grid gap-4" style={{ gridTemplateColumns: '1fr 2fr 1fr 1fr 1fr' }}>
           {/* License Plate */}
@@ -30,16 +30,16 @@ const VehicleTrackingDashboard = () => {
             <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
               <h3 className="text-dashboard-text-light text-sm font-medium">Licence Plate</h3>
             </div>
-            <div className="p-3 flex flex-col flex-grow">
-              <div className="text-white text-xl font-bold mb-2">IRQ A 4008</div>
-              <div className="text-xs text-dashboard-text-muted space-y-1 flex-grow overflow-hidden">
-                <div>2024-12-12 16:04:21.543</div>
-                <div>Plate Source: Iraq - Common</div>
-                <div>Gate: Entry Lane 1</div>
-                <div>Lane Type: Entry</div>
-                <div>Traffic Type: Private</div>
-                <div>Plate Colour: White</div>
-                <div>Confidence: 21</div>
+            <div className="p-4 flex flex-col flex-grow">
+              <div className="text-white text-lg font-bold mb-1 text-center">IRQ A 4008</div>
+              <div className="text-xs text-dashboard-text-muted space-y-0.5 flex-grow">
+                <div className="font-medium text-xs">2024-12-12 04:04:21 PM</div>
+                <div>Plate Source: <span className="text-white">Iraq - Common</span></div>
+                <div>Gate: <span className="text-white">Entry Lane 1</span></div>
+                <div>Lane Type: <span className="text-white">Entry</span></div>
+                <div>Traffic Type: <span className="text-white">Private</span></div>
+                <div>Plate Colour: <span className="text-white">White</span></div>
+                <div>Confidence: <span className="text-white font-semibold">21</span></div>
               </div>
             </div>
           </Card>
@@ -51,8 +51,8 @@ const VehicleTrackingDashboard = () => {
             </div>
             <div className="p-3 flex flex-col flex-grow">
               <div className="flex items-center justify-center mb-2">
-                <div className="w-64 h-40 flex items-center justify-center p-3">
-                  <img src="/icons/truck.png" alt="Truck" className="w-full h-full object-contain brightness-0 invert scale-150" />
+                <div className="w-20 h-12 flex items-center justify-center p-1">
+                  <img src="/icons/truck.png" alt="Truck" className="w-full h-full object-contain brightness-0 invert scale-50" />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-x-2 gap-y-0 text-xs flex-grow overflow-hidden">
@@ -98,8 +98,8 @@ const VehicleTrackingDashboard = () => {
               </div>
               <div className="p-2 flex flex-col flex-grow">
                 <div className="space-y-1">
-                  <div className="bg-dashboard-red h-4 rounded flex items-center justify-center mb-1">
-                    <div className="text-white text-xs font-mono">||||||||||||</div>
+                  <div className="h-16 mb-1">
+                    <img src="/icons/container.png" alt="Container" className="w-full h-full object-contain" />
                   </div>
                   <div className="text-xs text-dashboard-text-muted">Type: -</div>
                 </div>
