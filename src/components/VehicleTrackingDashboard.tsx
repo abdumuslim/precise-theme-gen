@@ -24,7 +24,7 @@ const VehicleTrackingDashboard = () => {
       {/* Main Dashboard Grid */}
       <div className="flex-1 p-4 grid gap-4 min-h-0" style={{ gridTemplateRows: '1fr 1fr 1.5fr' }}>
         {/* Top Row - Vehicle Info Cards */}
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid gap-4" style={{ gridTemplateColumns: '1fr 2fr 1fr 1fr 1fr' }}>
           {/* License Plate */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
             <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
@@ -51,17 +51,23 @@ const VehicleTrackingDashboard = () => {
             </div>
             <div className="p-3 flex flex-col flex-grow">
               <div className="flex items-center justify-center mb-2">
-                <div className="w-16 h-10 bg-dashboard-navy/50 rounded border border-dashboard-border flex items-center justify-center">
-                  <div className="text-xs text-dashboard-text-muted">Vehicle</div>
+                <div className="w-64 h-40 flex items-center justify-center p-3">
+                  <img src="/icons/truck.png" alt="Truck" className="w-full h-full object-contain brightness-0 invert scale-150" />
                 </div>
               </div>
-              <div className="space-y-1 text-xs flex-grow">
-                <div className="text-dashboard-text-muted">Distance (m): <span className="text-white font-semibold">5.7</span></div>
-                <div className="text-dashboard-text-muted">Weight (ton): <span className="text-white font-semibold">12.00</span></div>
-                <div className="text-dashboard-text-muted">Axles: <span className="text-white font-semibold">4</span></div>
-                <div className="text-dashboard-text-muted">Class: <span className="text-white font-semibold">Class 2</span></div>
-                <div className="text-dashboard-text-muted">Length: <span className="text-white font-semibold">15.00</span></div>
-                <div className="text-dashboard-text-muted">Width: <span className="text-white font-semibold">2.400</span></div>
+              <div className="grid grid-cols-2 gap-x-2 gap-y-0 text-xs flex-grow overflow-hidden">
+                <div className="text-dashboard-text-muted text-xs">Distance (m):</div>
+                <div className="text-dashboard-text-muted text-xs">Height (m):</div>
+                <div className="text-white font-semibold text-xs">5.7</div>
+                <div className="text-white font-semibold text-xs">4.43</div>
+                <div className="text-dashboard-text-muted text-xs">Weight (ton):</div>
+                <div className="text-dashboard-text-muted text-xs">Total Length (m):</div>
+                <div className="text-white font-semibold text-xs">12.00</div>
+                <div className="text-white font-semibold text-xs">13650.00</div>
+                <div className="text-dashboard-text-muted text-xs">Axles:</div>
+                <div className="text-dashboard-text-muted text-xs">Class:</div>
+                <div className="text-white font-semibold text-xs">4</div>
+                <div className="text-white font-semibold text-xs">Private</div>
               </div>
             </div>
           </Card>
