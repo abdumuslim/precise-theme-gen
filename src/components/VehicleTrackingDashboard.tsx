@@ -4,7 +4,7 @@ import { Settings, Home } from "lucide-react";
 
 const VehicleTrackingDashboard = () => {
   return (
-    <div className="h-screen bg-dashboard-navy text-dashboard-text-light flex flex-col overflow-hidden">
+    <div className="h-screen w-screen bg-dashboard-navy text-dashboard-text-light flex flex-col overflow-hidden">
       {/* Header */}
       <header className="bg-gradient-green h-16 flex items-center justify-between px-6 shadow-panel flex-shrink-0">
         <div className="flex items-center gap-4">
@@ -22,17 +22,17 @@ const VehicleTrackingDashboard = () => {
       </header>
 
       {/* Main Dashboard Grid */}
-      <div className="flex-1 p-2 grid gap-2 overflow-hidden" style={{ gridTemplateRows: '0.5fr 0.6fr 1fr' }}>
+      <div className="flex-1 p-2 grid gap-0.5 overflow-hidden max-w-screen max-h-screen" style={{ gridTemplateRows: '0.3fr 0.4fr 0.6fr' }}>
         {/* Top Row - Vehicle Info Cards */}
-        <div className="grid gap-2" style={{ gridTemplateColumns: '1fr 2fr 1fr 1fr 1fr' }}>
+        <div className="grid gap-0.5" style={{ gridTemplateColumns: '1fr 2fr 1fr 1fr 1fr' }}>
           {/* License Plate */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
-            <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">Licence Plate</h3>
+            <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
+              <h3 className="text-dashboard-text-light text-xs font-medium">Licence Plate</h3>
             </div>
-            <div className="p-2 flex flex-col flex-grow">
-              <div className="text-white text-base font-bold mb-1 text-center">IRQ A 4008</div>
-              <div className="text-xs text-dashboard-text-muted space-y-0.5 flex-grow">
+            <div className="p-0.5 flex flex-col flex-grow">
+              <div className="text-white text-xs font-bold mb-0.5 text-center">IRQ A 4008</div>
+              <div className="text-xs text-dashboard-text-muted space-y-0 flex-grow">
                 <div className="font-medium text-xs">2024-12-12 04:04:21 PM</div>
                 <div>Plate Source: <span className="text-white">Iraq - Common</span></div>
                 <div>Gate: <span className="text-white">Entry Lane 1</span></div>
@@ -46,12 +46,12 @@ const VehicleTrackingDashboard = () => {
 
           {/* Vehicle Details */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
-            <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">Vehicle Details</h3>
+            <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
+              <h3 className="text-dashboard-text-light text-xs font-medium">Vehicle Details</h3>
             </div>
-            <div className="p-2 flex flex-col flex-grow">
-              <div className="flex items-center justify-center mb-1">
-                <div className="w-16 h-10 flex items-center justify-center p-1">
+            <div className="p-0.5 flex flex-col flex-grow">
+              <div className="flex items-center justify-center mb-0.5">
+                <div className="w-8 h-6 flex items-center justify-center">
                   <img src="/icons/truck.png" alt="Truck" className="w-full h-full object-contain brightness-0 invert scale-50" />
                 </div>
               </div>
@@ -96,9 +96,9 @@ const VehicleTrackingDashboard = () => {
               <div className="bg-dashboard-text-muted/20 px-2 py-1 border-b border-dashboard-border">
                 <h3 className="text-dashboard-text-light text-xs font-medium">Container</h3>
               </div>
-              <div className="p-1 flex flex-col flex-grow">
-                <div className="space-y-0.5">
-                  <div className="h-12 mb-0.5">
+              <div className="p-0.5 flex flex-col flex-grow">
+                <div className="space-y-0">
+                  <div className="h-6 mb-0.5">
                     <img src="/icons/container.png" alt="Container" className="w-full h-full object-contain" />
                   </div>
                   <div className="text-xs text-dashboard-text-muted">Type: -</div>
@@ -109,10 +109,10 @@ const VehicleTrackingDashboard = () => {
 
           {/* Back Image */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
-            <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">Back Image</h3>
+            <div className="bg-dashboard-text-muted/20 px-2 py-1 border-b border-dashboard-border">
+              <h3 className="text-dashboard-text-light text-xs font-medium">Back Image</h3>
             </div>
-            <div className="p-2 flex flex-col flex-grow">
+            <div className="p-1 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
                 <div className="text-dashboard-text-muted text-xs">Back Camera</div>
               </div>
@@ -121,10 +121,10 @@ const VehicleTrackingDashboard = () => {
 
           {/* Front Image */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
-            <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">Front Image</h3>
+            <div className="bg-dashboard-text-muted/20 px-2 py-1 border-b border-dashboard-border">
+              <h3 className="text-dashboard-text-light text-xs font-medium">Front Image</h3>
             </div>
-            <div className="p-2 flex flex-col flex-grow">
+            <div className="p-1 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
                 <div className="text-dashboard-text-muted text-xs">Front Camera</div>
               </div>
@@ -133,13 +133,13 @@ const VehicleTrackingDashboard = () => {
         </div>
 
         {/* Middle Row - Camera Views and Timeline */}
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-0.5">
           {/* 3D Scan */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
-            <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">3D Scan</h3>
+            <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
+              <h3 className="text-dashboard-text-light text-xs font-medium">3D Scan</h3>
             </div>
-            <div className="p-2 flex flex-col flex-grow">
+            <div className="p-0.5 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
                 <div className="text-dashboard-text-muted text-xs">3D Vehicle Scan</div>
               </div>
@@ -148,10 +148,10 @@ const VehicleTrackingDashboard = () => {
 
           {/* Overview Image */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
-            <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">Overview Image</h3>
+            <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
+              <h3 className="text-dashboard-text-light text-xs font-medium">Overview Image</h3>
             </div>
-            <div className="p-2 flex flex-col flex-grow">
+            <div className="p-0.5 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
                 <div className="text-dashboard-text-muted text-xs">Overview Camera</div>
               </div>
@@ -160,10 +160,10 @@ const VehicleTrackingDashboard = () => {
 
           {/* Timeline */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
-            <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">Timeline</h3>
+            <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
+              <h3 className="text-dashboard-text-light text-xs font-medium">Timeline</h3>
             </div>
-            <div className="p-2 flex flex-col flex-grow">
+            <div className="p-0.5 flex flex-col flex-grow">
               <div className="flex-grow space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-6 bg-dashboard-navy/50 rounded border border-dashboard-border flex items-center justify-center">
@@ -181,16 +181,16 @@ const VehicleTrackingDashboard = () => {
         </div>
 
         {/* Bottom Row - Fixed Filter and Data Table */}
-        <div className="grid grid-cols-4 gap-2 overflow-hidden">
+        <div className="grid grid-cols-4 gap-0.5 overflow-hidden">
           {/* Filter Section - Square-like */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
-            <div className="bg-dashboard-text-muted/20 px-4 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">Filter</h3>
+            <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
+              <h3 className="text-dashboard-text-light text-xs font-medium">Filter</h3>
             </div>
-            <div className="p-2 flex flex-col flex-grow">
-              <div className="space-y-2 flex-grow">
+            <div className="p-0.5 flex flex-col flex-grow">
+              <div className="space-y-0.5 flex-grow">
                 <div>
-                  <div className="space-y-2">
+                  <div className="space-y-0.5">
                     <div>
                       <label className="text-xs text-dashboard-text-muted">From</label>
                       <div className="flex gap-1">
@@ -257,11 +257,11 @@ const VehicleTrackingDashboard = () => {
 
           {/* Data Table - Scrollable */}
           <Card className="col-span-3 bg-gradient-panel border-dashboard-border shadow-panel flex flex-col overflow-hidden">
-            <div className="bg-dashboard-text-muted/20 px-4 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">Vehicle Data</h3>
+            <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
+              <h3 className="text-dashboard-text-light text-xs font-medium">Vehicle Data</h3>
             </div>
             <div className="flex flex-col h-full">
-              <div className="border border-dashboard-border rounded mb-4 mx-4 mt-4 flex-1 min-h-0">
+              <div className="border border-dashboard-border rounded mb-1 mx-1 mt-1 flex-1 min-h-0">
                 <div className="h-full overflow-y-auto">
                   <table className="w-full text-xs" style={{ tableLayout: 'fixed' }}>
                     <thead className="bg-gradient-panel border-b border-dashboard-border sticky top-0">
@@ -299,7 +299,7 @@ const VehicleTrackingDashboard = () => {
               </div>
               
               {/* Paging Controls */}
-              <div className="flex items-center justify-between px-4 py-3 border-t border-dashboard-border bg-gradient-panel mx-4 mb-4 rounded-b">
+              <div className="flex items-center justify-between px-4 pt-3 pb-10 border-t border-dashboard-border bg-gradient-panel mx-4 mb-4 rounded-b">
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-dashboard-text-muted">Total 25 items</span>
                 </div>
