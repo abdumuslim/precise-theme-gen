@@ -107,14 +107,14 @@ const VehicleTrackingDashboard = () => {
             </Card>
           </div>
 
-          {/* 3D Scan */}
+          {/* Back Image */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
             <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">3D Scan</h3>
+              <h3 className="text-dashboard-text-light text-sm font-medium">Back Image</h3>
             </div>
             <div className="p-3 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                <div className="text-dashboard-text-muted text-xs">3D Vehicle Scan</div>
+                <div className="text-dashboard-text-muted text-xs">Back Camera</div>
               </div>
             </div>
           </Card>
@@ -134,14 +134,14 @@ const VehicleTrackingDashboard = () => {
 
         {/* Middle Row - Camera Views and Timeline */}
         <div className="grid grid-cols-3 gap-4">
-          {/* Back Image */}
+          {/* 3D Scan */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
             <div className="bg-dashboard-text-muted/20 px-3 py-2 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-sm font-medium">Back Image</h3>
+              <h3 className="text-dashboard-text-light text-sm font-medium">3D Scan</h3>
             </div>
             <div className="p-3 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                <div className="text-dashboard-text-muted text-xs">Back Camera</div>
+                <div className="text-dashboard-text-muted text-xs">3D Vehicle Scan</div>
               </div>
             </div>
           </Card>
@@ -190,7 +190,6 @@ const VehicleTrackingDashboard = () => {
             <div className="p-4 flex flex-col flex-grow">
               <div className="space-y-3 flex-grow">
                 <div>
-                  <label className="text-xs text-dashboard-text-muted mb-2 block">Date & Time Range</label>
                   <div className="space-y-2">
                     <div>
                       <label className="text-xs text-dashboard-text-muted">From</label>
