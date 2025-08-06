@@ -22,7 +22,7 @@ const VehicleTrackingDashboard = () => {
       </header>
 
       {/* Main Dashboard Grid */}
-      <div className="flex-1 p-2 grid gap-0.5 overflow-hidden max-w-screen max-h-screen" style={{ gridTemplateRows: '0.3fr 0.4fr 0.6fr' }}>
+      <div className="flex-1 p-2 grid gap-0.5 overflow-hidden max-w-screen max-h-screen" style={{ gridTemplateRows: '0.4fr 0.3fr 0.6fr' }}>
         {/* Top Row - Vehicle Info Cards */}
         <div className="grid gap-0.5" style={{ gridTemplateColumns: '1fr 2fr 1fr 1fr 1fr' }}>
           {/* License Plate */}
@@ -49,25 +49,22 @@ const VehicleTrackingDashboard = () => {
             <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
               <h3 className="text-dashboard-text-light text-xs font-medium">Vehicle Details</h3>
             </div>
-            <div className="p-0.5 flex flex-col flex-grow">
-              <div className="flex items-center justify-center mb-0.5">
-                <div className="w-8 h-6 flex items-center justify-center">
-                  <img src="/icons/truck.png" alt="Truck" className="w-full h-full object-contain brightness-0 invert scale-50" />
-                </div>
+            <div className="p-0.5 flex flex-grow">
+              {/* Left Grid - Vehicle Information */}
+              <div className="flex-1 flex flex-col justify-center space-y-0.5 text-xs">
+                <div className="text-dashboard-text-muted">Total Weight:</div>
+                <div className="text-dashboard-text-muted">Maximum Allowed Weight:</div>
+                <div className="text-dashboard-text-muted">Is Loaded:</div>
+                <div className="text-dashboard-text-muted">Number Of Axis:</div>
+                <div className="text-dashboard-text-muted">Vehicle Class:</div>
+                <div className="text-dashboard-text-muted">Vehicle Color:</div>
+                <div className="text-dashboard-text-muted">Vehicle Make:</div>
+                <div className="text-dashboard-text-muted">Vehicle Model:</div>
               </div>
-              <div className="grid grid-cols-2 gap-x-2 gap-y-0 text-xs flex-grow overflow-hidden">
-                <div className="text-dashboard-text-muted text-xs">Distance (m):</div>
-                <div className="text-dashboard-text-muted text-xs">Height (m):</div>
-                <div className="text-white font-semibold text-xs">5.7</div>
-                <div className="text-white font-semibold text-xs">4.43</div>
-                <div className="text-dashboard-text-muted text-xs">Weight (ton):</div>
-                <div className="text-dashboard-text-muted text-xs">Total Length (m):</div>
-                <div className="text-white font-semibold text-xs">12.00</div>
-                <div className="text-white font-semibold text-xs">13650.00</div>
-                <div className="text-dashboard-text-muted text-xs">Axles:</div>
-                <div className="text-dashboard-text-muted text-xs">Class:</div>
-                <div className="text-white font-semibold text-xs">4</div>
-                <div className="text-white font-semibold text-xs">Private</div>
+              
+              {/* Right Grid - Truck Image */}
+              <div className="flex-1 flex items-center justify-center relative">
+                <img src="/icons/truck.png" alt="Truck" className="w-full h-full object-contain brightness-0 invert absolute -left-4" />
               </div>
             </div>
           </Card>
@@ -97,12 +94,10 @@ const VehicleTrackingDashboard = () => {
                 <h3 className="text-dashboard-text-light text-xs font-medium">Container</h3>
               </div>
               <div className="p-0.5 flex flex-col flex-grow">
-                <div className="space-y-0">
-                  <div className="h-6 mb-0.5">
-                    <img src="/icons/container.png" alt="Container" className="w-full h-full object-contain" />
-                  </div>
-                  <div className="text-xs text-dashboard-text-muted">Type: -</div>
+                <div className="flex-1 flex items-center justify-center">
+                  <img src="/icons/container.png" alt="Container" className="w-4/5 h-4/5 object-contain" />
                 </div>
+                <div className="text-xs text-dashboard-text-muted text-left">Type: -</div>
               </div>
             </Card>
           </div>
