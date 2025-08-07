@@ -6,6 +6,7 @@ import { Settings, Home, CalendarIcon } from "lucide-react";
 import { useState } from "react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import type { DateRange } from "react-day-picker";
 
 const VehicleTrackingDashboard = () => {
   const [filters, setFilters] = useState({
@@ -14,7 +15,7 @@ const VehicleTrackingDashboard = () => {
     platePrefix: '',
     plateNumber: ''
   });
-  const [date, setDate] = useState<Date>();
+  const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
   const vehicleData = [
     { time: '2024-12-12 16:04:21.543', lpr: 'IRQ 102345', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '12.00', speed: '-', dimension: '13.86x4.43x0.00', loaded: '-', image: 'number 102345.png' },
@@ -52,7 +53,7 @@ const VehicleTrackingDashboard = () => {
       platePrefix: '',
       plateNumber: ''
     });
-    setDate(undefined);
+    setDateRange(undefined);
   };
   return (
     <div className="h-screen w-screen bg-dashboard-navy text-dashboard-text-light flex flex-col overflow-hidden">
@@ -260,19 +261,31 @@ const VehicleTrackingDashboard = () => {
                         variant="outline"
                         className={cn(
                           "w-full justify-start text-left font-normal bg-dashboard-navy/50 border-dashboard-border text-xs h-8",
-                          !date && "text-dashboard-text-muted"
+                          !dateRange && "text-dashboard-text-muted"
                         )}
                       >
                         <CalendarIcon className="mr-2 h-3 w-3" />
-                        {date ? format(date, "PPP") : <span>Pick a date</span>}
+                        {dateRange?.from ? (
+                          dateRange.to ? (
+                            <>
+                              {format(dateRange.from, "LLL dd, y")} -{" "}
+                              {format(dateRange.to, "LLL dd, y")}
+                            </>
+                          ) : (
+                            format(dateRange.from, "LLL dd, y")
+                          )
+                        ) : (
+                          <span>Pick a date range</span>
+                        )}
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
                       <Calendar
-                        mode="single"
-                        selected={date}
-                        onSelect={setDate}
-                        initialFocus
+                        mode="range"
+                        defaultMonth={dateRange?.from}
+                        selected={dateRange}
+                        onSelect={setDateRange}
+                        numberOfMonths={2}
                         className={cn("p-3 pointer-events-auto")}
                       />
                     </PopoverContent>
