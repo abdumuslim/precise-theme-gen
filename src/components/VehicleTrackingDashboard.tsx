@@ -30,16 +30,18 @@ const VehicleTrackingDashboard = () => {
             <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
               <h3 className="text-dashboard-text-light text-xs font-medium">Licence Plate</h3>
             </div>
-            <div className="p-0.5 flex flex-col flex-grow">
-              <div className="text-white text-xs font-bold mb-0.5 text-center">IRQ A 4008</div>
-              <div className="text-xs text-dashboard-text-muted space-y-0 flex-grow">
-                <div className="font-medium text-xs">2024-12-12 04:04:21 PM</div>
-                <div>Plate Source: <span className="text-white">Iraq - Common</span></div>
-                <div>Gate: <span className="text-white">Entry Lane 1</span></div>
-                <div>Lane Type: <span className="text-white">Entry</span></div>
-                <div>Traffic Type: <span className="text-white">Private</span></div>
-                <div>Plate Colour: <span className="text-white">White</span></div>
-                <div>Confidence: <span className="text-white font-semibold">21</span></div>
+            <div className="p-0.5 flex flex-col h-full">
+              <div className="flex justify-center mt-2 mb-1 flex-shrink-0">
+                <div className="bg-white text-black font-bold py-0.5 px-1 rounded inline-block" style={{ fontSize: 'clamp(10px, 1.5vw, 16px)' }}>IRQ A 4008</div>
+              </div>
+              <div className="flex-1 flex flex-col justify-center space-y-0 overflow-hidden" style={{ fontSize: 'clamp(8px, 1.1vw, 14px)' }}>
+                <div className="font-medium">2024-12-12 04:04:21 PM</div>
+                <div><span className="text-dashboard-green">Plate Source</span>: <span className="text-white">Iraq - Common</span></div>
+                <div><span className="text-dashboard-green">Gate</span>: <span className="text-white">Entry Lane 1</span></div>
+                <div><span className="text-dashboard-green">Lane Type</span>: <span className="text-white">Entry</span></div>
+                <div><span className="text-dashboard-green">Traffic Type</span>: <span className="text-white">Private</span></div>
+                <div><span className="text-dashboard-green">Plate Colour</span>: <span className="text-white">White</span></div>
+                <div><span className="text-dashboard-green">Confidence</span>: <span className="text-white font-semibold">21</span></div>
               </div>
             </div>
           </Card>
@@ -51,15 +53,15 @@ const VehicleTrackingDashboard = () => {
             </div>
             <div className="p-0.5 flex flex-grow">
               {/* Left Grid - Vehicle Information */}
-              <div className="flex-1 flex flex-col justify-center space-y-0.5 text-xs">
-                <div className="text-dashboard-text-muted">Total Weight:</div>
-                <div className="text-dashboard-text-muted">Maximum Allowed Weight:</div>
-                <div className="text-dashboard-text-muted">Is Loaded:</div>
-                <div className="text-dashboard-text-muted">Number Of Axis:</div>
-                <div className="text-dashboard-text-muted">Vehicle Class:</div>
-                <div className="text-dashboard-text-muted">Vehicle Color:</div>
-                <div className="text-dashboard-text-muted">Vehicle Make:</div>
-                <div className="text-dashboard-text-muted">Vehicle Model:</div>
+              <div className="flex-1 flex flex-col justify-center space-y-0.5 text-sm">
+                <div className="text-dashboard-green">Total Weight:</div>
+                <div className="text-dashboard-green">Maximum Allowed Weight:</div>
+                <div className="text-dashboard-green">Is Loaded:</div>
+                <div className="text-dashboard-green">Number Of Axis:</div>
+                <div className="text-dashboard-green">Vehicle Class:</div>
+                <div className="text-dashboard-green">Vehicle Color:</div>
+                <div className="text-dashboard-green">Vehicle Make:</div>
+                <div className="text-dashboard-green">Vehicle Model:</div>
               </div>
               
               {/* Right Grid - Truck Image */}
