@@ -187,38 +187,12 @@ const VehicleTrackingDashboard = () => {
             <div className="p-0.5 flex flex-col flex-grow">
               <div className="space-y-0.5 flex-grow">
                 <div>
-                  <div className="space-y-0.5">
-                    <div>
-                      <label className="text-xs text-dashboard-text-muted">From</label>
-                      <div className="flex gap-1">
-                        <input 
-                          type="date" 
-                          defaultValue="2024-12-12"
-                          className="flex-1 bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white"
-                        />
-                        <input 
-                          type="time" 
-                          defaultValue="00:00"
-                          className="bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="text-xs text-dashboard-text-muted">To</label>
-                      <div className="flex gap-1">
-                        <input 
-                          type="date" 
-                          defaultValue="2024-12-12"
-                          className="flex-1 bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white"
-                        />
-                        <input 
-                          type="time" 
-                          defaultValue="23:59"
-                          className="bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                  <label className="text-xs text-dashboard-text-muted">Period Range</label>
+                  <input 
+                    type="text" 
+                    placeholder="2024-12-12 00:00 - 2024-12-12 23:59"
+                    className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white placeholder-dashboard-text-muted"
+                  />
                 </div>
                 <div>
                   <label className="text-xs text-dashboard-text-muted">Entry</label>
