@@ -119,7 +119,7 @@ const VehicleTrackingDashboard = () => {
               {/* Right Grid - Truck Image */}
               <div className="flex-1 flex items-center justify-center relative">
                 {/* Truck Image */}
-                <img src="/icons/truck2.png" alt="Truck" className="w-4/5 h-4/5 object-contain brightness-0 invert absolute -left-8" />
+                <img src="./icons/truck2.png" alt="Truck" className="w-4/5 h-4/5 object-contain brightness-0 invert absolute -left-8" />
                 
                 {/* Height measurement */}
                 <div className="absolute right-7 top-15 flex flex-col items-center">
@@ -160,7 +160,7 @@ const VehicleTrackingDashboard = () => {
               </div>
               <div className="p-0.5 flex flex-col flex-grow">
                 <div className="flex-1 flex items-center justify-center">
-                  <img src="/icons/container.png" alt="Container" className="w-4/5 h-4/5 object-contain" />
+                  <img src="./icons/container.png" alt="Container" className="w-4/5 h-4/5 object-contain" />
                 </div>
                 <div className="text-xs text-dashboard-text-muted text-left">Type: -</div>
               </div>
@@ -174,7 +174,7 @@ const VehicleTrackingDashboard = () => {
             </div>
             <div className="p-1 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                <img src="/icons/rear truck.jpg" alt="Rear Truck" className="w-1/2 h-1/2 object-cover rounded" />
+                <img src="./icons/rear truck.jpg" alt="Rear Truck" className="w-1/2 h-1/2 object-cover rounded" />
               </div>
             </div>
           </Card>
@@ -186,7 +186,7 @@ const VehicleTrackingDashboard = () => {
             </div>
             <div className="p-1 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                <img src="/icons/front truck.jpg" alt="Front Truck" className="w-1/2 h-1/2 object-cover rounded" />
+                <img src="./icons/front truck.jpg" alt="Front Truck" className="w-1/2 h-1/2 object-cover rounded" />
               </div>
             </div>
           </Card>
@@ -215,7 +215,7 @@ const VehicleTrackingDashboard = () => {
               </div>
               <div className="p-0.5 flex flex-col flex-grow">
                 <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                  <img src="/icons/overview image.png" alt="Overview" className="w-1/2 h-1/2 object-cover rounded" />
+                  <img src="./icons/overview image.png" alt="Overview" className="w-1/2 h-1/2 object-cover rounded" />
                 </div>
               </div>
             </Card>
@@ -227,7 +227,7 @@ const VehicleTrackingDashboard = () => {
               </div>
               <div className="p-0.5 flex flex-col flex-grow">
                 <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                  <img src="/icons/map.png" alt="Map" className="w-1/2 h-1/2 object-cover rounded" />
+                  <img src="./icons/map.png" alt="Map" className="w-1/2 h-1/2 object-cover rounded" />
                 </div>
               </div>
             </Card>
@@ -407,7 +407,7 @@ const VehicleTrackingDashboard = () => {
                           <td className="p-2 text-dashboard-text-light">
                             <div className="w-full h-12 flex items-center justify-center">
                               <img 
-                                src={`/icons/${item.image}`} 
+                                src={`./icons/${item.image}`} 
                                 alt="Plate" 
                                 className="h-full object-contain" 
                               />
