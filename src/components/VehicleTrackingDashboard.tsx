@@ -155,7 +155,7 @@ const VehicleTrackingDashboard = () => {
               <h3 className="text-dashboard-text-light text-xs font-medium">Back Image</h3>
             </div>
             <div className="p-1 flex flex-col flex-grow">
-              <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border overflow-hidden">
+              <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center overflow-hidden">
                 <img src="/icons/rear truck.jpg" alt="Rear Truck" className="w-full h-full object-cover" />
               </div>
             </div>
@@ -167,7 +167,7 @@ const VehicleTrackingDashboard = () => {
               <h3 className="text-dashboard-text-light text-xs font-medium">Front Image</h3>
             </div>
             <div className="p-1 flex flex-col flex-grow">
-              <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border overflow-hidden">
+              <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center overflow-hidden">
                 <img src="/icons/front truck.jpg" alt="Front Truck" className="w-full h-full object-cover" />
               </div>
             </div>
@@ -196,7 +196,7 @@ const VehicleTrackingDashboard = () => {
                 <h3 className="text-dashboard-text-light text-xs font-medium">Overview Image</h3>
               </div>
               <div className="p-0.5 flex flex-col flex-grow">
-                <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border overflow-hidden">
+                <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center overflow-hidden">
                   <img src="/icons/overview image.png" alt="Overview" className="w-full h-full object-cover" />
                 </div>
               </div>
@@ -208,7 +208,7 @@ const VehicleTrackingDashboard = () => {
                 <h3 className="text-dashboard-text-light text-xs font-medium">Map</h3>
               </div>
               <div className="p-0.5 flex flex-col flex-grow">
-                <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border overflow-hidden">
+                <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center overflow-hidden">
                   <img src="/icons/map.png" alt="Map" className="w-full h-full object-cover" />
                 </div>
               </div>
