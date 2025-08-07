@@ -1,8 +1,53 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Settings, Home } from "lucide-react";
+import { useState } from "react";
 
 const VehicleTrackingDashboard = () => {
+  const [filters, setFilters] = useState({
+    periodRange: '',
+    entry: 'All',
+    platePrefix: '',
+    plateNumber: ''
+  });
+
+  const vehicleData = [
+    { time: '2024-12-12 16:04:21.543', lpr: 'IRQ 102345', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '12.00', speed: '-', dimension: '13.86x4.43x0.00', loaded: '-', image: 'number 102345.png' },
+    { time: '2024-12-12 16:04:21.544', lpr: 'IRQ S 10346', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '2', weight: '12.50', speed: '26', dimension: '14.86x4.53x0.00', loaded: '-', image: 'number s 10346.png' },
+    { time: '2024-12-12 16:04:21.545', lpr: 'IRQ 3296', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '13.00', speed: '-', dimension: '15.86x4.63x0.00', loaded: '-', image: 'number 3296.jpg' },
+    { time: '2024-12-12 16:04:21.546', lpr: 'IRQ 548306', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '2', weight: '13.50', speed: '28', dimension: '16.86x4.73x0.00', loaded: '-', image: 'number 548306.jpg' },
+    { time: '2024-12-12 16:04:21.547', lpr: '21 G 34567', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '14.00', speed: '29', dimension: '17.86x4.83x0.00', loaded: '-', image: 'number 21 G 34567.png' }
+  ];
+
+  const filteredData = vehicleData.filter(item => {
+    if (filters.platePrefix && !item.lpr.toLowerCase().includes(filters.platePrefix.toLowerCase())) {
+      return false;
+    }
+    if (filters.plateNumber && !item.lpr.toLowerCase().includes(filters.plateNumber.toLowerCase())) {
+      return false;
+    }
+    if (filters.entry !== 'All' && item.gate !== filters.entry) {
+      return false;
+    }
+    return true;
+  });
+
+  const handleFilterChange = (field, value) => {
+    setFilters(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSearch = () => {
+    // Filter is applied automatically through filteredData
+  };
+
+  const handleReset = () => {
+    setFilters({
+      periodRange: '',
+      entry: 'All',
+      platePrefix: '',
+      plateNumber: ''
+    });
+  };
   return (
     <div className="h-screen w-screen bg-dashboard-navy text-dashboard-text-light flex flex-col overflow-hidden">
       {/* Header */}
@@ -190,35 +235,56 @@ const VehicleTrackingDashboard = () => {
                   <label className="text-xs text-dashboard-text-muted">Period Range</label>
                   <input 
                     type="text" 
-                    placeholder="2024-12-12 00:00 - 2024-12-12 23:59"
+                    value={filters.periodRange}
+                    onChange={(e) => handleFilterChange('periodRange', e.target.value)}
                     className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white placeholder-dashboard-text-muted"
                   />
                 </div>
                 <div>
                   <label className="text-xs text-dashboard-text-muted">Entry</label>
-                  <select className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white">
-                    <option>All</option>
+                  <select 
+                    value={filters.entry}
+                    onChange={(e) => handleFilterChange('entry', e.target.value)}
+                    className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white"
+                  >
+                    <option value="All">All</option>
+                    <option value="Entry Lane 1">Entry Lane 1</option>
+                    <option value="Entry Lane 2">Entry Lane 2</option>
+                    <option value="Exit Lane 1">Exit Lane 1</option>
                   </select>
                 </div>
                 <div>
                   <label className="text-xs text-dashboard-text-muted">Plate Prefix</label>
                   <input 
                     type="text" 
-                    className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white"
+                    value={filters.platePrefix}
+                    onChange={(e) => handleFilterChange('platePrefix', e.target.value)}
+                    className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white placeholder-dashboard-text-muted"
                   />
                 </div>
                 <div>
                   <label className="text-xs text-dashboard-text-muted">Plate Number</label>
                   <input 
                     type="text" 
-                    className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white"
+                    value={filters.plateNumber}
+                    onChange={(e) => handleFilterChange('plateNumber', e.target.value)}
+                    className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white placeholder-dashboard-text-muted"
                   />
                 </div>
                 <div className="flex gap-1 pt-1">
-                  <Button size="sm" className="bg-dashboard-green hover:bg-dashboard-green-bright text-white text-xs px-2 py-1">
+                  <Button 
+                    size="sm" 
+                    onClick={handleSearch}
+                    className="bg-dashboard-green hover:bg-dashboard-green-bright text-white text-xs px-2 py-1"
+                  >
                     Search
                   </Button>
-                  <Button size="sm" variant="outline" className="border-dashboard-border text-dashboard-text-light text-xs px-2 py-1">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    onClick={handleReset}
+                    className="border-dashboard-border text-dashboard-text-light text-xs px-2 py-1"
+                  >
                     Reset
                   </Button>
                 </div>
@@ -235,6 +301,19 @@ const VehicleTrackingDashboard = () => {
               <div className="border border-dashboard-border rounded mb-2 mx-2 mt-2 flex-1 min-h-0">
                 <div className="h-full overflow-y-auto">
                   <table className="w-full text-xs" style={{ tableLayout: 'fixed' }}>
+                    <colgroup>
+                      <col style={{ width: '12%' }} />
+                      <col style={{ width: '10%' }} />
+                      <col style={{ width: '10%' }} />
+                      <col style={{ width: '12%' }} />
+                      <col style={{ width: '10%' }} />
+                      <col style={{ width: '6%' }} />
+                      <col style={{ width: '8%' }} />
+                      <col style={{ width: '7%' }} />
+                      <col style={{ width: '15%' }} />
+                      <col style={{ width: '7%' }} />
+                      <col style={{ width: '10%' }} />
+                    </colgroup>
                     <thead className="bg-gradient-panel border-b border-dashboard-border sticky top-0">
                       <tr>
                         <th className="text-left text-dashboard-green p-2">Time</th>
@@ -247,21 +326,31 @@ const VehicleTrackingDashboard = () => {
                         <th className="text-left text-dashboard-green p-2">Speed</th>
                         <th className="text-left text-dashboard-green p-2">Dimension</th>
                         <th className="text-left text-dashboard-green p-2">Loaded</th>
+                        <th className="text-left text-dashboard-green p-2"></th>
                       </tr>
                     </thead>
                     <tbody>
-                      {Array.from({ length: 25 }, (_, i) => (
+                      {filteredData.map((item, i) => (
                         <tr key={i} className="border-b border-dashboard-border/50 hover:bg-dashboard-navy/20">
-                          <td className="p-2 text-dashboard-text-light">2024-12-12<br/>16:04:21.{543 + i}</td>
-                          <td className="p-2 text-dashboard-text-light">IRQ A {4008 + i}</td>
-                          <td className="p-2 text-dashboard-text-light">Entry Lane 1</td>
-                          <td className="p-2 text-dashboard-text-light">-</td>
-                          <td className="p-2 text-dashboard-text-light">Private</td>
-                          <td className="p-2 text-dashboard-text-light">{i % 2 === 0 ? '4' : '2'}</td>
-                          <td className="p-2 text-dashboard-text-light">{(12.00 + (i * 0.5)).toFixed(2)}</td>
-                          <td className="p-2 text-dashboard-text-light">{i % 3 === 0 ? '-' : `${25 + i}`}</td>
-                          <td className="p-2 text-dashboard-text-light">{(13.86 + i).toFixed(2)}x{(4.43 + (i * 0.1)).toFixed(2)}x0.00</td>
-                          <td className="p-2 text-dashboard-text-light">-</td>
+                          <td className="p-2 text-dashboard-text-light" dangerouslySetInnerHTML={{__html: item.time.replace(' ', '<br/>')}}></td>
+                          <td className="p-2 text-dashboard-text-light">{item.lpr}</td>
+                          <td className="p-2 text-dashboard-text-light">{item.gate}</td>
+                          <td className="p-2 text-dashboard-text-light">{item.container}</td>
+                          <td className="p-2 text-dashboard-text-light">{item.vehicleClass}</td>
+                          <td className="p-2 text-dashboard-text-light">{item.axles}</td>
+                          <td className="p-2 text-dashboard-text-light">{item.weight}</td>
+                          <td className="p-2 text-dashboard-text-light">{item.speed}</td>
+                          <td className="p-2 text-dashboard-text-light">{item.dimension}</td>
+                          <td className="p-2 text-dashboard-text-light">{item.loaded}</td>
+                          <td className="p-2 text-dashboard-text-light">
+                            <div className="w-full h-12 flex items-center justify-center">
+                              <img 
+                                src={`/icons/${item.image}`} 
+                                alt="Plate" 
+                                className="h-full object-contain" 
+                              />
+                            </div>
+                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -272,7 +361,7 @@ const VehicleTrackingDashboard = () => {
               {/* Paging Controls */}
               <div className="flex items-center justify-between px-4 py-3 border-t border-dashboard-border bg-gradient-panel mx-4 mb-6 rounded-b">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-dashboard-text-muted">Total 25 items</span>
+                  <span className="text-xs text-dashboard-text-muted">Total {filteredData.length} items</span>
                 </div>
                 
                 <div className="flex items-center gap-4">
