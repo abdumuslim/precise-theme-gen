@@ -1,7 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Settings, Home } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Settings, Home, CalendarIcon } from "lucide-react";
 import { useState } from "react";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 const VehicleTrackingDashboard = () => {
   const [filters, setFilters] = useState({
@@ -10,6 +14,18 @@ const VehicleTrackingDashboard = () => {
     platePrefix: '',
     plateNumber: ''
   });
+
+  const [dateRange, setDateRange] = useState<{
+    from: Date | undefined;
+    to: Date | undefined;
+  }>({
+    from: undefined,
+    to: undefined
+  });
+
+  const handleDateRangeSelect = (range: any) => {
+    setDateRange(range || { from: undefined, to: undefined });
+  };
 
   const vehicleData = [
     { time: '2024-12-12 16:04:21.543', lpr: 'IRQ 102345', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '12.00', speed: '-', dimension: '13.86x4.43x0.00', loaded: '-', image: 'number 102345.png' },
@@ -46,6 +62,10 @@ const VehicleTrackingDashboard = () => {
       entry: 'All',
       platePrefix: '',
       plateNumber: ''
+    });
+    setDateRange({
+      from: undefined,
+      to: undefined
     });
   };
   return (
@@ -248,12 +268,41 @@ const VehicleTrackingDashboard = () => {
               <div className="space-y-0.5 flex-grow">
                 <div>
                   <label className="text-xs text-dashboard-text-muted">Period Range</label>
-                  <input 
-                    type="text" 
-                    value={filters.periodRange}
-                    onChange={(e) => handleFilterChange('periodRange', e.target.value)}
-                    className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white placeholder-dashboard-text-muted"
-                  />
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white hover:bg-dashboard-navy/70 justify-start font-normal",
+                          !dateRange.from && "text-dashboard-text-muted"
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-3 w-3" />
+                        {dateRange.from ? (
+                          dateRange.to ? (
+                            <>
+                              {format(dateRange.from, "MMM dd, yyyy")} - {format(dateRange.to, "MMM dd, yyyy")}
+                            </>
+                          ) : (
+                            format(dateRange.from, "MMM dd, yyyy")
+                          )
+                        ) : (
+                          <span>Select date range</span>
+                        )}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0 bg-dashboard-navy border-dashboard-border" align="start">
+                      <Calendar
+                        initialFocus
+                        mode="range"
+                        defaultMonth={dateRange.from}
+                        selected={dateRange}
+                        onSelect={handleDateRangeSelect}
+                        numberOfMonths={2}
+                        className={cn("p-3 pointer-events-auto bg-dashboard-navy text-white")}
+                      />
+                    </PopoverContent>
+                  </Popover>
                 </div>
                 <div>
                   <label className="text-xs text-dashboard-text-muted">Entry</label>
