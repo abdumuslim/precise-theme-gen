@@ -1,11 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Settings, Home, CalendarIcon } from "lucide-react";
+import { Settings, Home } from "lucide-react";
 import { useState } from "react";
-import { format } from "date-fns";
-import { cn } from "@/lib/utils";
 
 const VehicleTrackingDashboard = () => {
   const [filters, setFilters] = useState({
@@ -15,60 +11,24 @@ const VehicleTrackingDashboard = () => {
     plateNumber: ''
   });
 
-  const [dateRange, setDateRange] = useState<{
-    from: Date | undefined;
-    to: Date | undefined;
-  }>({
-    from: undefined,
-    to: undefined
-  });
-
-  const handleDateRangeSelect = (range: any) => {
-    setDateRange(range || { from: undefined, to: undefined });
-  };
-
   const vehicleData = [
-    { time: '2024-12-12 16:04:21.543', lpr: 'IRQ 102345', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '12.00', speed: '-', dimension: '13.86x4.43x0.00', loaded: '-', image: 'number%20102345.png' },
-    { time: '2024-12-12 16:04:21.544', lpr: 'IRQ S 10346', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '2', weight: '12.50', speed: '26', dimension: '14.86x4.53x0.00', loaded: '-', image: 'number%20s%2010346.png' },
-    { time: '2024-12-12 16:04:21.545', lpr: 'IRQ 3296', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '13.00', speed: '-', dimension: '15.86x4.63x0.00', loaded: '-', image: 'number%203296.jpg' },
-    { time: '2024-12-12 16:04:21.546', lpr: 'IRQ 548306', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '2', weight: '13.50', speed: '28', dimension: '16.86x4.73x0.00', loaded: '-', image: 'number%20548306.jpg' },
-    { time: '2024-12-12 16:04:21.547', lpr: '21 G 34567', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '14.00', speed: '29', dimension: '17.86x4.83x0.00', loaded: '-', image: 'number%2021%20G%2034567.png' }
+    { time: '2024-12-12 16:04:21.543', lpr: 'IRQ 102345', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '12.00', speed: '-', dimension: '13.86x4.43x0.00', loaded: '-', image: 'number 102345.png' },
+    { time: '2024-12-12 16:04:21.544', lpr: 'IRQ S 10346', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '2', weight: '12.50', speed: '26', dimension: '14.86x4.53x0.00', loaded: '-', image: 'number s 10346.png' },
+    { time: '2024-12-12 16:04:21.545', lpr: 'IRQ 3296', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '13.00', speed: '-', dimension: '15.86x4.63x0.00', loaded: '-', image: 'number 3296.jpg' },
+    { time: '2024-12-12 16:04:21.546', lpr: 'IRQ 548306', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '2', weight: '13.50', speed: '28', dimension: '16.86x4.73x0.00', loaded: '-', image: 'number 548306.jpg' },
+    { time: '2024-12-12 16:04:21.547', lpr: '21 G 34567', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '14.00', speed: '29', dimension: '17.86x4.83x0.00', loaded: '-', image: 'number 21 G 34567.png' }
   ];
 
   const filteredData = vehicleData.filter(item => {
-    // Date range filter
-    if (dateRange.from || dateRange.to) {
-      const itemDate = new Date(item.time);
-      
-      if (dateRange.from && itemDate < dateRange.from) {
-        return false;
-      }
-      
-      if (dateRange.to) {
-        // Set end date to end of day (23:59:59)
-        const endDate = new Date(dateRange.to);
-        endDate.setHours(23, 59, 59, 999);
-        if (itemDate > endDate) {
-          return false;
-        }
-      }
-    }
-    
-    // Plate prefix filter
     if (filters.platePrefix && !item.lpr.toLowerCase().includes(filters.platePrefix.toLowerCase())) {
       return false;
     }
-    
-    // Plate number filter
     if (filters.plateNumber && !item.lpr.toLowerCase().includes(filters.plateNumber.toLowerCase())) {
       return false;
     }
-    
-    // Entry filter
     if (filters.entry !== 'All' && item.gate !== filters.entry) {
       return false;
     }
-    
     return true;
   });
 
@@ -86,10 +46,6 @@ const VehicleTrackingDashboard = () => {
       entry: 'All',
       platePrefix: '',
       plateNumber: ''
-    });
-    setDateRange({
-      from: undefined,
-      to: undefined
     });
   };
   return (
@@ -200,7 +156,7 @@ const VehicleTrackingDashboard = () => {
             </div>
             <div className="p-1 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                <img src="/icons/rear%20truck.jpg" alt="Rear Truck" className="w-1/2 h-1/2 object-cover rounded" />
+                <img src="/icons/rear truck.jpg" alt="Rear Truck" className="w-1/2 h-1/2 object-cover rounded" />
               </div>
             </div>
           </Card>
@@ -212,7 +168,7 @@ const VehicleTrackingDashboard = () => {
             </div>
             <div className="p-1 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                <img src="/icons/front%20truck.jpg" alt="Front Truck" className="w-1/2 h-1/2 object-cover rounded" />
+                <img src="/icons/front truck.jpg" alt="Front Truck" className="w-1/2 h-1/2 object-cover rounded" />
               </div>
             </div>
           </Card>
@@ -241,7 +197,7 @@ const VehicleTrackingDashboard = () => {
               </div>
               <div className="p-0.5 flex flex-col flex-grow">
                 <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                  <img src="/icons/overview%20image.png" alt="Overview" className="w-1/2 h-1/2 object-cover rounded" />
+                  <img src="/icons/overview image.png" alt="Overview" className="w-1/2 h-1/2 object-cover rounded" />
                 </div>
               </div>
             </Card>
@@ -292,47 +248,12 @@ const VehicleTrackingDashboard = () => {
               <div className="space-y-0.5 flex-grow">
                 <div>
                   <label className="text-xs text-dashboard-text-muted">Period Range</label>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="outline"
-                        className={cn(
-                          "w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white hover:bg-dashboard-navy/70 justify-start font-normal",
-                          !dateRange.from && "text-dashboard-text-muted"
-                        )}
-                      >
-                        <CalendarIcon className="mr-2 h-3 w-3" />
-                        {dateRange.from ? (
-                          dateRange.to ? (
-                            <>
-                              {format(dateRange.from, "MMM dd, yyyy")} - {format(dateRange.to, "MMM dd, yyyy")}
-                            </>
-                          ) : (
-                            format(dateRange.from, "MMM dd, yyyy")
-                          )
-                        ) : (
-                          <span>Select date range</span>
-                        )}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0 bg-dashboard-navy border-dashboard-border" align="start">
-                      <Calendar
-                        initialFocus
-                        mode="range"
-                        defaultMonth={dateRange.from}
-                        selected={dateRange}
-                        onSelect={handleDateRangeSelect}
-                        numberOfMonths={2}
-                        className={cn("p-3 pointer-events-auto bg-dashboard-navy text-white")}
-                        classNames={{
-                          day_selected: "bg-blue-600 text-white hover:bg-blue-700",
-                          day_range_middle: "bg-blue-200 text-blue-900",
-                          day_range_start: "bg-blue-600 text-white hover:bg-blue-700",
-                          day_range_end: "bg-blue-600 text-white hover:bg-blue-700"
-                        }}
-                      />
-                    </PopoverContent>
-                  </Popover>
+                  <input 
+                    type="text" 
+                    value={filters.periodRange}
+                    onChange={(e) => handleFilterChange('periodRange', e.target.value)}
+                    className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white placeholder-dashboard-text-muted"
+                  />
                 </div>
                 <div>
                   <label className="text-xs text-dashboard-text-muted">Entry</label>
