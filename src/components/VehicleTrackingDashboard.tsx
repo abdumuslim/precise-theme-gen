@@ -119,16 +119,16 @@ const VehicleTrackingDashboard = () => {
               {/* Right Grid - Truck Image */}
               <div className="flex-1 flex items-center justify-center relative">
                 {/* Truck Image */}
-                <img src="/icons/truck.png" alt="Truck" className="w-full h-full object-contain brightness-0 invert absolute -left-8" />
+                <img src="/icons/truck2.png" alt="Truck" className="w-4/5 h-4/5 object-contain brightness-0 invert absolute -left-8" />
                 
                 {/* Height measurement */}
-                <div className="absolute right-0.5 top-14 flex flex-col items-center">
-                  <div className="bg-gray-800 text-white text-xs font-bold px-2 py-1 rounded">4.2</div>
+                <div className="absolute right-7 top-15 flex flex-col items-center">
+                  <div className="bg-dashboard-green text-white text-xs font-bold px-2 py-1 rounded">4.2</div>
                 </div>
                 
                 {/* Length measurement */}
-                <div className="absolute bottom-11 left-1/2 transform translate-x-4 flex flex-col items-center">
-                  <div className="bg-gray-800 text-white text-xs font-bold px-2 py-1 rounded">12.5</div>
+                <div className="absolute bottom-5 left-12 transform translate-x-4 flex flex-col items-center">
+                  <div className="bg-dashboard-green text-white text-xs font-bold px-2 py-1 rounded">12.5</div>
                 </div>
               </div>
             </div>
