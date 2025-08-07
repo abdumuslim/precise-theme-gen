@@ -300,6 +300,12 @@ const VehicleTrackingDashboard = () => {
                         onSelect={handleDateRangeSelect}
                         numberOfMonths={2}
                         className={cn("p-3 pointer-events-auto bg-dashboard-navy text-white")}
+                        classNames={{
+                          day_selected: "bg-blue-600 text-white hover:bg-blue-700",
+                          day_range_middle: "bg-blue-200 text-blue-900",
+                          day_range_start: "bg-blue-600 text-white hover:bg-blue-700",
+                          day_range_end: "bg-blue-600 text-white hover:bg-blue-700"
+                        }}
                       />
                     </PopoverContent>
                   </Popover>
