@@ -18,11 +18,11 @@ const VehicleTrackingDashboard = () => {
   const [dateRange, setDateRange] = useState<DateRange | undefined>();
 
   const vehicleData = [
-    { time: '2024-12-12 16:04:21.543', lpr: 'IRQ 102345', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '12.00', speed: '-', dimension: '13.86x4.43x0.00', loaded: '-', image: 'number 102345.png' },
-    { time: '2024-12-12 16:04:21.544', lpr: 'IRQ S 10346', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '2', weight: '12.50', speed: '26', dimension: '14.86x4.53x0.00', loaded: '-', image: 'number s 10346.png' },
-    { time: '2024-12-12 16:04:21.545', lpr: 'IRQ 3296', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '13.00', speed: '-', dimension: '15.86x4.63x0.00', loaded: '-', image: 'number 3296.jpg' },
-    { time: '2024-12-12 16:04:21.546', lpr: 'IRQ 548306', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '2', weight: '13.50', speed: '28', dimension: '16.86x4.73x0.00', loaded: '-', image: 'number 548306.jpg' },
-    { time: '2024-12-12 16:04:21.547', lpr: '21 G 34567', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '14.00', speed: '29', dimension: '17.86x4.83x0.00', loaded: '-', image: 'number 21 G 34567.png' }
+    { time: '2025-08-15 14:23:18.543', lpr: 'IRQ 102345', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '12.00', speed: '-', dimension: '13.86x4.43x0.00', loaded: '-', image: 'number 102345.png' },
+    { time: '2025-07-22 09:15:42.544', lpr: 'IRQ S 10346', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '2', weight: '12.50', speed: '26', dimension: '14.86x4.53x0.00', loaded: '-', image: 'number s 10346.png' },
+    { time: '2025-06-08 11:37:29.545', lpr: 'IRQ 3296', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '13.00', speed: '-', dimension: '15.86x4.63x0.00', loaded: '-', image: 'number 3296.jpg' },
+    { time: '2025-05-14 16:52:07.546', lpr: 'IRQ 548306', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '2', weight: '13.50', speed: '28', dimension: '16.86x4.73x0.00', loaded: '-', image: 'number 548306.jpg' },
+    { time: '2025-08-03 08:41:33.547', lpr: '21 G 34567', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '14.00', speed: '29', dimension: '17.86x4.83x0.00', loaded: '-', image: 'number 21 G 34567.png' }
   ];
 
   const filteredData = vehicleData.filter(item => {
@@ -60,7 +60,7 @@ const VehicleTrackingDashboard = () => {
       {/* Header */}
       <header className="bg-gradient-green h-16 flex items-center justify-between px-6 shadow-panel flex-shrink-0">
         <div className="flex items-center gap-4">
-          <div className="text-white font-bold text-xl">Lane Me</div>
+          <div className="text-white font-bold text-xl">Check point monitoring system</div>
         </div>
         <div className="flex items-center gap-4">
           <Button variant="outline" size="sm" className="text-white border-white/20 hover:bg-white/10">
@@ -87,7 +87,7 @@ const VehicleTrackingDashboard = () => {
                 <div className="bg-white text-black font-bold py-0.5 px-1 rounded inline-block" style={{ fontSize: 'clamp(10px, 1.5vw, 16px)' }}>IRQ A 4008</div>
               </div>
               <div className="flex-1 flex flex-col justify-center space-y-0 overflow-hidden" style={{ fontSize: 'clamp(8px, 1.1vw, 14px)' }}>
-                <div className="font-medium">2024-12-12 04:04:21 PM</div>
+                <div className="font-medium">2025-08-15 02:23:18 PM</div>
                 <div><span className="text-dashboard-green">Plate Source</span>: <span className="text-white">Iraq - Common</span></div>
                 <div><span className="text-dashboard-green">Gate</span>: <span className="text-white">Entry Lane 1</span></div>
                 <div><span className="text-dashboard-green">Lane Type</span>: <span className="text-white">Entry</span></div>
@@ -106,19 +106,30 @@ const VehicleTrackingDashboard = () => {
             <div className="p-0.5 flex flex-grow">
               {/* Left Grid - Vehicle Information */}
               <div className="flex-1 flex flex-col justify-center space-y-0.5 text-sm">
-                <div className="text-dashboard-green">Total Weight:</div>
-                <div className="text-dashboard-green">Maximum Allowed Weight:</div>
-                <div className="text-dashboard-green">Is Loaded:</div>
-                <div className="text-dashboard-green">Number Of Axis:</div>
-                <div className="text-dashboard-green">Vehicle Class:</div>
-                <div className="text-dashboard-green">Vehicle Color:</div>
-                <div className="text-dashboard-green">Vehicle Make:</div>
-                <div className="text-dashboard-green">Vehicle Model:</div>
+                <div><span className="text-dashboard-green">Total Weight:</span> <span className="text-white">18,500 kg</span></div>
+                <div><span className="text-dashboard-green">Maximum Allowed Weight:</span> <span className="text-white">25,000 kg</span></div>
+                <div><span className="text-dashboard-green">Is Loaded:</span> <span className="text-white">Yes</span></div>
+                <div><span className="text-dashboard-green">Number Of Axis:</span> <span className="text-white">4</span></div>
+                <div><span className="text-dashboard-green">Vehicle Class:</span> <span className="text-white">Heavy Truck</span></div>
+                <div><span className="text-dashboard-green">Vehicle Color:</span> <span className="text-white">Blue</span></div>
+                <div><span className="text-dashboard-green">Vehicle Make:</span> <span className="text-white">Mercedes</span></div>
+                <div><span className="text-dashboard-green">Vehicle Model:</span> <span className="text-white">Actros</span></div>
               </div>
               
               {/* Right Grid - Truck Image */}
               <div className="flex-1 flex items-center justify-center relative">
-                <img src="/icons/truck.png" alt="Truck" className="w-full h-full object-contain brightness-0 invert absolute -left-4" />
+                {/* Truck Image */}
+                <img src="/icons/truck.png" alt="Truck" className="w-full h-full object-contain brightness-0 invert absolute -left-8" />
+                
+                {/* Height measurement */}
+                <div className="absolute right-0.5 top-14 flex flex-col items-center">
+                  <div className="bg-gray-800 text-white text-xs font-bold px-2 py-1 rounded">4.2</div>
+                </div>
+                
+                {/* Length measurement */}
+                <div className="absolute bottom-11 left-1/2 transform translate-x-4 flex flex-col items-center">
+                  <div className="bg-gray-800 text-white text-xs font-bold px-2 py-1 rounded">12.5</div>
+                </div>
               </div>
             </div>
           </Card>
@@ -234,7 +245,7 @@ const VehicleTrackingDashboard = () => {
                     <div className="text-xs text-dashboard-text-muted">IMG</div>
                   </div>
                   <div className="text-xs text-dashboard-text-muted">
-                    <div className="text-white font-semibold">2024-12-12 16:04</div>
+                    <div className="text-white font-semibold">2025-08-15 14:23</div>
                     <div>Entry Lane 1</div>
                   </div>
                 </div>
