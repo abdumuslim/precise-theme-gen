@@ -294,7 +294,7 @@ const VehicleTrackingDashboard = () => {
               </div>
               
               {/* Paging Controls */}
-              <div className="flex items-center justify-between px-4 pt-3 pb-10 border-t border-dashboard-border bg-gradient-panel mx-4 mb-4 rounded-b">
+              <div className="flex items-center justify-between px-4 py-2 border-t border-dashboard-border bg-gradient-panel mx-4 mb-4 rounded-b">
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-dashboard-text-muted">Total 25 items</span>
                 </div>
