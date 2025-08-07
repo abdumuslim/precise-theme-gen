@@ -1,7 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Settings, Home } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Settings, Home, CalendarIcon } from "lucide-react";
 import { useState } from "react";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 const VehicleTrackingDashboard = () => {
   const [filters, setFilters] = useState({
@@ -10,6 +14,7 @@ const VehicleTrackingDashboard = () => {
     platePrefix: '',
     plateNumber: ''
   });
+  const [date, setDate] = useState<Date>();
 
   const vehicleData = [
     { time: '2024-12-12 16:04:21.543', lpr: 'IRQ 102345', gate: 'Entry Lane 1', container: '-', vehicleClass: 'Private', axles: '4', weight: '12.00', speed: '-', dimension: '13.86x4.43x0.00', loaded: '-', image: 'number 102345.png' },
@@ -47,6 +52,7 @@ const VehicleTrackingDashboard = () => {
       platePrefix: '',
       plateNumber: ''
     });
+    setDate(undefined);
   };
   return (
     <div className="h-screen w-screen bg-dashboard-navy text-dashboard-text-light flex flex-col overflow-hidden">
@@ -248,12 +254,29 @@ const VehicleTrackingDashboard = () => {
               <div className="space-y-0.5 flex-grow">
                 <div>
                   <label className="text-xs text-dashboard-text-muted">Period Range</label>
-                  <input 
-                    type="text" 
-                    value={filters.periodRange}
-                    onChange={(e) => handleFilterChange('periodRange', e.target.value)}
-                    className="w-full bg-dashboard-navy/50 border border-dashboard-border rounded px-2 py-1 text-xs text-white placeholder-dashboard-text-muted"
-                  />
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "w-full justify-start text-left font-normal bg-dashboard-navy/50 border-dashboard-border text-xs h-8",
+                          !date && "text-dashboard-text-muted"
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-3 w-3" />
+                        {date ? format(date, "PPP") : <span>Pick a date</span>}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={setDate}
+                        initialFocus
+                        className={cn("p-3 pointer-events-auto")}
+                      />
+                    </PopoverContent>
+                  </Popover>
                 </div>
                 <div>
                   <label className="text-xs text-dashboard-text-muted">Entry</label>
