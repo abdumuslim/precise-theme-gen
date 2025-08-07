@@ -36,15 +36,39 @@ const VehicleTrackingDashboard = () => {
   ];
 
   const filteredData = vehicleData.filter(item => {
+    // Date range filter
+    if (dateRange.from || dateRange.to) {
+      const itemDate = new Date(item.time);
+      
+      if (dateRange.from && itemDate < dateRange.from) {
+        return false;
+      }
+      
+      if (dateRange.to) {
+        // Set end date to end of day (23:59:59)
+        const endDate = new Date(dateRange.to);
+        endDate.setHours(23, 59, 59, 999);
+        if (itemDate > endDate) {
+          return false;
+        }
+      }
+    }
+    
+    // Plate prefix filter
     if (filters.platePrefix && !item.lpr.toLowerCase().includes(filters.platePrefix.toLowerCase())) {
       return false;
     }
+    
+    // Plate number filter
     if (filters.plateNumber && !item.lpr.toLowerCase().includes(filters.plateNumber.toLowerCase())) {
       return false;
     }
+    
+    // Entry filter
     if (filters.entry !== 'All' && item.gate !== filters.entry) {
       return false;
     }
+    
     return true;
   });
 
