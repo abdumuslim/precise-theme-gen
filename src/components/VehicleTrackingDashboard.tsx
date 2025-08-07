@@ -22,7 +22,7 @@ const VehicleTrackingDashboard = () => {
       </header>
 
       {/* Main Dashboard Grid */}
-      <div className="flex-1 p-2 grid gap-0.5 overflow-hidden max-w-screen max-h-screen" style={{ gridTemplateRows: '0.4fr 0.3fr 0.6fr' }}>
+      <div className="flex-1 p-2 grid gap-0.5 overflow-hidden max-w-screen max-h-screen" style={{ gridTemplateRows: '0.45fr 0.35fr 0.7fr' }}>
         {/* Top Row - Vehicle Info Cards */}
         <div className="grid gap-0.5" style={{ gridTemplateColumns: '1fr 2fr 1fr 1fr 1fr' }}>
           {/* License Plate */}
@@ -256,7 +256,7 @@ const VehicleTrackingDashboard = () => {
               <h3 className="text-dashboard-text-light text-xs font-medium">Vehicle Data</h3>
             </div>
             <div className="flex flex-col h-full">
-              <div className="border border-dashboard-border rounded mb-1 mx-1 mt-1 flex-1 min-h-0">
+              <div className="border border-dashboard-border rounded mb-2 mx-2 mt-2 flex-1 min-h-0">
                 <div className="h-full overflow-y-auto">
                   <table className="w-full text-xs" style={{ tableLayout: 'fixed' }}>
                     <thead className="bg-gradient-panel border-b border-dashboard-border sticky top-0">
@@ -294,7 +294,7 @@ const VehicleTrackingDashboard = () => {
               </div>
               
               {/* Paging Controls */}
-              <div className="flex items-center justify-between px-4 py-2 border-t border-dashboard-border bg-gradient-panel mx-4 mb-4 rounded-b">
+              <div className="flex items-center justify-between px-4 py-3 border-t border-dashboard-border bg-gradient-panel mx-4 mb-6 rounded-b">
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-dashboard-text-muted">Total 25 items</span>
                 </div>
