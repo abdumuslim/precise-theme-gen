@@ -156,7 +156,7 @@ const VehicleTrackingDashboard = () => {
             </div>
             <div className="p-1 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                <div className="text-dashboard-text-muted text-xs">Back Camera</div>
+                <img src="/icons/rear truck.jpg" alt="Rear Truck" className="w-1/2 h-1/2 object-cover rounded" />
               </div>
             </div>
           </Card>
@@ -168,7 +168,7 @@ const VehicleTrackingDashboard = () => {
             </div>
             <div className="p-1 flex flex-col flex-grow">
               <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                <div className="text-dashboard-text-muted text-xs">Front Camera</div>
+                <img src="/icons/front truck.jpg" alt="Front Truck" className="w-1/2 h-1/2 object-cover rounded" />
               </div>
             </div>
           </Card>
@@ -188,17 +188,32 @@ const VehicleTrackingDashboard = () => {
             </div>
           </Card>
 
-          {/* Overview Image */}
-          <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
-            <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
-              <h3 className="text-dashboard-text-light text-xs font-medium">Overview Image</h3>
-            </div>
-            <div className="p-0.5 flex flex-col flex-grow">
-              <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
-                <div className="text-dashboard-text-muted text-xs">Overview Camera</div>
+          {/* Overview Image & Map - Split */}
+          <div className="grid grid-cols-2 gap-0.5">
+            {/* Overview Image */}
+            <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
+              <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
+                <h3 className="text-dashboard-text-light text-xs font-medium">Overview Image</h3>
               </div>
-            </div>
-          </Card>
+              <div className="p-0.5 flex flex-col flex-grow">
+                <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
+                  <img src="/icons/overview image.png" alt="Overview" className="w-1/2 h-1/2 object-cover rounded" />
+                </div>
+              </div>
+            </Card>
+
+            {/* Map */}
+            <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
+              <div className="bg-dashboard-text-muted/20 px-1 py-0.5 border-b border-dashboard-border">
+                <h3 className="text-dashboard-text-light text-xs font-medium">Map</h3>
+              </div>
+              <div className="p-0.5 flex flex-col flex-grow">
+                <div className="bg-dashboard-navy/50 flex-grow rounded border border-dashboard-border flex items-center justify-center">
+                  <img src="/icons/map.png" alt="Map" className="w-1/2 h-1/2 object-cover rounded" />
+                </div>
+              </div>
+            </Card>
+          </div>
 
           {/* Timeline */}
           <Card className="bg-gradient-panel border-dashboard-border shadow-panel flex flex-col">
